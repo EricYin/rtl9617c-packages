@@ -10,3 +10,11 @@
 	path = rtl9617c-pon-control
 	url = https://github.com/crysister/rtl9617c-pon-control.git
 	branch = main
+[submodule "rtl9617c-pe-offload"]
+	path = rtl9617c-pe-offload
+	url = https://github.com/crysister/rtl9617c-pe-offload.git
+	branch = main
+[submodule "luci-app-rtl9617c-pe"]
+	path = luci-app-rtl9617c-pe
+	url = https://github.com/crysister/luci-app-rtl9617c-pe.git
+	branch = main
