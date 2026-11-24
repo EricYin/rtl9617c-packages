@@ -1,13 +1,14 @@
 # rtl9617c-packages
 
-OpenWrt / ImmortalWrt package feed aggregating the decoupled Realtek RTL9617C (Taurus) LuCI packages. Each package directory is a Git submodule pointing directly to its standalone source repository:
+OpenWrt / ImmortalWrt package feed aggregating the decoupled Realtek RTL9617C (Taurus) userspace packages. Each package directory is a Git submodule pointing directly to its standalone source repository:
 
 | Package | Upstream Repository |
 | --- | --- |
+| `rtl9617c-pon-control` | https://github.com/crysister/rtl9617c-pon-control |
 | `luci-app-rtl9617c-pon` | https://github.com/crysister/luci-app-rtl9617c-pon |
 | `luci-app-rtl9617c-qos` | https://github.com/crysister/luci-app-rtl9617c-qos |
 
-> Core kernel drivers, DTS, and `rtl9617c-pon-control` stay in the OpenWrt / ImmortalWrt target tree.
+> Core kernel drivers, DTS, patches, and driver host unit tests stay in the OpenWrt / ImmortalWrt target tree (`target/linux/rtl9617c/`).
 
 ## Usage
 

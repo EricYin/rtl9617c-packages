@@ -6,3 +6,7 @@
 	path = luci-app-rtl9617c-qos
 	url = https://github.com/crysister/luci-app-rtl9617c-qos.git
 	branch = main
+[submodule "rtl9617c-pon-control"]
+	path = rtl9617c-pon-control
+	url = https://github.com/crysister/rtl9617c-pon-control.git
+	branch = main
