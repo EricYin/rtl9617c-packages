@@ -18,3 +18,7 @@
 	path = luci-app-rtl9617c-pe
 	url = https://github.com/crysister/luci-app-rtl9617c-pe.git
 	branch = main
+[submodule "luci-app-rtl9617c-qos-v2"]
+	path = luci-app-rtl9617c-qos-v2
+	url = https://github.com/crysister/luci-app-rtl9617c-qos-v2.git
+	branch = main

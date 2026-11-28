@@ -6,7 +6,8 @@ OpenWrt / ImmortalWrt package feed aggregating the decoupled Realtek RTL9617C (T
 | --- | --- | --- |
 | `rtl9617c-pon-control` | https://github.com/crysister/rtl9617c-pon-control | PON control daemon & CLI |
 | `luci-app-rtl9617c-pon` | https://github.com/crysister/luci-app-rtl9617c-pon | LuCI PON management UI |
-| `luci-app-rtl9617c-qos` | https://github.com/crysister/luci-app-rtl9617c-qos | LuCI QoS / Offload / DoS / Mirror UI |
+| `luci-app-rtl9617c-qos` | https://github.com/crysister/luci-app-rtl9617c-qos | LuCI QoS / Offload / DoS / Mirror UI (v1; mutually exclusive with `qos-v2`) |
+| `luci-app-rtl9617c-qos-v2` | https://github.com/crysister/luci-app-rtl9617c-qos-v2 | Smart Hardware SQM v2 Cockpit + out-of-tree `kmod-rtl9617c-dpi` first-packet L7 DPI & RTT Autorate (mutually exclusive with v1) |
 | `rtl9617c-pe-offload` | https://github.com/crysister/rtl9617c-pe-offload | Out-of-tree `kmod-rtl9617c-pe` + Taroko MIPS-I PE bare-metal firmware & `ubus` backend |
 | `luci-app-rtl9617c-pe` | https://github.com/crysister/luci-app-rtl9617c-pe | LuCI PE0/PE1 dashboard & one-click controls |
 
@@ -17,7 +18,7 @@ OpenWrt / ImmortalWrt package feed aggregating the decoupled Realtek RTL9617C (T
 - **Zero third-party feed lock-in**: `luci-app-rtl9617c-pon` no longer hard-depends on `luci-theme-argon` / `luci-i18n-argon-config-zh-cn` (auto-applies Argon only if installed).
 - **Out-of-tree PE driver (`kmod-rtl9617c-pe`)**: `rtl9617c-pe-offload` builds `rtl9617c-pe.ko` completely out-of-tree against stock RTL9617C kernels/DTBs (no DTS edits, no main-tree patches) and installs the prebuilt `firmware/pe-offload.bin` by default (pass `RTL9617C_PE_REBUILD_FW=1` to rebuild firmware with MIPS-capable `clang`/`lld`).
 - **Auto-selected QoS kernel modules**: `luci-app-rtl9617c-qos` pulls standard OpenWrt `+tc +kmod-sched-flower +kmod-sched-act-police +kmod-sched-mqprio`, so upstream trees that did not enable those `CONFIG_NET_SCH_*`/`CLS_*`/`ACT_*` options in `config-6.18` build them automatically as modules (and built-in trees like `rtl9617c-immortalwrt` satisfy them via `modules.builtin`). Optional NI/FE/crypto/ETS kernel extensions are probed at runtime and degrade gracefully when absent.
-- **Target scoping**: All 5 packages carry `@TARGET_rtl9617c`, so adding this feed will never break non-`rtl9617c` targets or emit Kconfig unmet-dependency warnings.
+- **Target scoping**: All 6 packages carry `@TARGET_rtl9617c`, so adding this feed will never break non-`rtl9617c` targets or emit Kconfig unmet-dependency warnings. `luci-app-rtl9617c-qos` (v1) and `luci-app-rtl9617c-qos-v2` (v2) declare `CONFLICTS` so only one is installed at a time.
 
 ## Usage
 
